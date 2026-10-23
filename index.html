@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07100b">
+  <title>S9 MINING</title>
+  <style>
+    :root { color-scheme: dark; --green: #36e079; --panel: #101c15; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #07100b; color: #f4fff7; font-family: Arial, sans-serif; }
+    header { padding: 22px 18px; border-bottom: 1px solid #203c2b; text-align: center; }
+    header h1 { color: var(--green); margin: 0 0 6px; letter-spacing: 2px; }
+    header p { margin: 0; color: #b8c9bd; font-size: 14px; }
+    main { width: min(760px, 100%); margin: auto; padding: 20px 16px 36px; }
+    .card { background: var(--panel); border: 1px solid #24432f; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+    .label { color: #b8c9bd; font-size: 13px; }
+    .balance { color: var(--green); font-size: clamp(30px, 7vw, 44px); font-weight: 700; margin: 8px 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    button { border: 0; border-radius: 10px; padding: 12px 10px; background: var(--green); color: #041108; font-weight: 700; cursor: pointer; }
+    button.secondary { background: #1c3425; color: #eafff0; border: 1px solid #31583e; }
+    #panel { margin-top: 16px; color: #d9e8dd; line-height: 1.5; }
+    .notice { color: #b8c9bd; font-size: 12px; line-height: 1.5; }
+    @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>S9 MINING</h1>
+    <p>Your mining-style demo dashboard</p>
+  </header>
+  <main>
+    <section class="card">
+      <div class="label">DEMO BALANCE</div>
+      <div class="balance">$0.00</div>
+      <div class="label">Simulation only · No real funds</div>
+    </section>
+    <section class="card">
+      <h2>Dashboard</h2>
+      <div class="grid">
+        <button onclick="showPanel('Home')">Home</button>
+        <button class="secondary" onclick="showPanel('Plans')">Demo Plans</button>
+        <button class="secondary" onclick="showPanel('Referrals')">Referrals</button>
+      </div>
+      <div id="panel" aria-live="polite">Welcome to S9 MINING. Choose a section above.</div>
+    </section>
+    <p class="notice">Demo only: this page does not mine cryptocurrency, accept deposits, or make withdrawals. Any real financial features require a secure backend and appropriate legal and compliance review.</p>
+  </main>
+  <script>
+    function showPanel(section) {
+      const messages = {
+        Home: "Welcome to your S9 MINING demo dashboard.",
+        Plans: "Demo plans are not available yet. No investment or payment is being requested.",
+        Referrals: "Referral tracking is a demo placeholder and does not record real referrals."
+      };
+      document.getElementById("panel").textContent = messages[section] || "Demo section";
+    }
+  </script>
+</body>
+</html>
